@@ -1,7 +1,5 @@
 # Microbiome_two_treatments_Metformine-Linagliptine
 
-# Treatment_T2D
-
 Objetive: We have two objectives in this study.
 - To determine the effect of linagliptin/metformin compared to metformin on the composition of the gut microbiome in treatment-naive patients with prediabetes and compared to Metformin and linagliptin/metformin.
 - To determine the relationship of the composition of the gut microbiome with insulin resistance and insulin secretion in patients with prediabetes treated with linagliptin/metformin compared to metformin and treatment-naive patients.
