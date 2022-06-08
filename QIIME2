@@ -1,0 +1,5 @@
+# Overview of QIIME 2 Plugin Workflows.
+
+##Step 0. Import raw sequences.
+
+It would be best to have the manifest file and the demultiplexed sequences in fastq format to import the data.
