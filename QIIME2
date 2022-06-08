@@ -3,3 +3,45 @@
 ##Step 0. Import raw sequences.
 
 It would be best to have the manifest file and the demultiplexed sequences in fastq format to import the data.
+
+#Import data
+
+```
+qiime tools import \
+--type 'SampleData[PairedEndSequencesWithQuality]' \
+--input-path manifest.tsv \
+--output-path paired-end-demux.qza \
+--input-format PairedEndFastqManifestPhred33V2
+```
+
+##QA
+
+#Examine data quality (in QIIME2)
+
+```
+qiime demux summarize \
+--i-data paired-end-demux.qza \
+--o-visualization paired-end-demux.qzv
+```
+
+#Examine data quality from fastqc.
+
+```
+fastqc ~/Documentos/tesis2/casava-18-paired-end-demultiplexed/SRR9019767_1.fastq
+fastqc ~/Documentos/tesis2/casava-18-paired-end-demultiplexed/SRR9019770_1.fastq
+fastqc ~/Documentos/tesis2/casava-18-paired-end-demultiplexed/SRR9019798_1.fastq
+```
+
+##Denoise paired (DADA2).
+
+```
+qiime dada2 denoise-paired \
+  --i-demultiplexed-seqs paired-end-demux.qza \
+  --p-trim-left-f 20 \
+  --p-trim-left-r 20 \
+  --p-trunc-len-f 240 \
+  --p-trunc-len-r 220 \
+  --o-table table.qza \
+  --o-representative-sequences paired-end-demux.qza \
+  --o-denoising-stats denoising-stats.qza
+  ```
