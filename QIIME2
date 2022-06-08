@@ -45,3 +45,26 @@ qiime dada2 denoise-paired \
   --o-representative-sequences paired-end-demux.qza \
   --o-denoising-stats denoising-stats.qza
   ```
+
+##Characteristics of the sequences.
+
+```
+qiime feature-table summarize \
+  --i-table table.qza \
+  --o-visualization table.qzv \
+  --m-sample-metadata-file sample-metadata.tsv
+```
+
+```
+qiime feature-table tabulate-seqs \
+  --i-data paired-end-demux.qza \
+  --o-visualization paired-end-demux.qzv
+```
+
+##Denoising statistics.
+
+```
+qiime metadata tabulate \
+  --m-input-file denoising-stats.qza \
+  --o-visualization denoising-stats.qzv
+```
